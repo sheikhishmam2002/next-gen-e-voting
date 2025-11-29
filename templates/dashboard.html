@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Next-Gen EVM{% endblock %}
+
+{% block content %}
+<div class="dashboard-wrapper">
+    <h1 class="page-title">Election Dashboard</h1>
+    <p class="page-subtitle">
+        Real-time overview of votes cast using the Next-Gen e-Voting Machine.
+    </p>
+
+    <!-- Top Summary Cards -->
+    <div class="summary-grid">
+        <div class="summary-card">
+            <h2>Total Votes</h2>
+            <p class="summary-number">{{ total_votes }}</p>
+            <p class="summary-label">Votes Cast</p>
+        </div>
+
+        <div class="summary-card">
+            <h2>Total Parties</h2>
+            <p class="summary-number">{{ party_votes|length }}</p>
+            <p class="summary-label">Participating Parties</p>
+        </div>
+
+        <div class="summary-card highlight">
+            <h2>Winning Party</h2>
+            {% if winning_party %}
+                <p class="summary-number">{{ winning_party }}</p>
+                <p class="summary-label">{{ winning_votes }} vote(s)</p>
+            {% else %}
+                <p class="summary-number">N/A</p>
+                <p class="summary-label">No votes yet</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Main Content Split: Ranking & Voter Details -->
+    <div class="content-grid">
+        <!-- Party Ranking -->
+        <section class="panel">
+            <h2 class="panel-title">Party Ranking by Votes</h2>
+            {% if ranked_parties %}
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Party</th>
+                            <th>Votes</th>
+                            <th>Vote Share (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for party, count in ranked_parties %}
+                            {% set rank = loop.index %}
+                            <tr class="{% if party == winning_party %}winner-row{% endif %}">
+                                <td>#{{ rank }}</td>
+                                <td>{{ party }}</td>
+                                <td>{{ count }}</td>
+                                <td>
+                                    {% if total_votes > 0 %}
+                                        {{ "%.1f"|format((count / total_votes) * 100) }}%
+                                    {% else %}
+                                        0%
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No vote data available.</p>
+            {% endif %}
+        </section>
+
+        <!-- Voter Details -->
+        <section class="panel">
+            <h2 class="panel-title">Voter Details</h2>
+            {% if voters %}
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Voter ID</th>
+                            <th>Name</th>
+                            <!-- <th>Voted Party</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for voter in voters %}
+                            <tr>
+                                <td>{{ voter.voter_id }}</td>
+                                <td>{{ voter.name }}</td>
+                                <!-- <td>{{ voter.party }}</td> -->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No voters found.</p>
+            {% endif %}
+        </section>
+    </div>
+</div>
+{% endblock %}
