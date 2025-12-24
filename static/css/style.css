@@ -7,8 +7,10 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background: radial-gradient(circle at top left, #1f3b73, #0b1727 50%, #02040a);
-    color: #f5f7ff;
+    /* background: radial-gradient(circle at top left, #1f3b73, #0b1727 50%, #02040a);
+    color: #f5f7ff; */
+    background: #ffffff; 
+    color: #0f172a;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
