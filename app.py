@@ -4,7 +4,7 @@ from collections import Counter
 import os
 
 app = Flask(__name__)
-app.secret_key = "super_secret_key_change_me"  # change this for real deployment
+app.secret_key = "super_secret_key_change_me"
 
 # -------------------------
 # Database Configuration (SQLite)
