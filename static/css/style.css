@@ -7,10 +7,8 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    /* background: radial-gradient(circle at top left, #1f3b73, #0b1727 50%, #02040a);
-    color: #f5f7ff; */
-    background: #ffffff; 
-    color: #0f172a;
+    background: #ffffff; /* White background */
+    color: #0f172a; /* Dark text for readability */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -22,7 +20,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0.9rem 2rem;
-    background: linear-gradient(90deg, #172554, #1d4ed8);
+    background: #172554; /* Solid dark blue background */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
     position: sticky;
     top: 0;
@@ -46,7 +44,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
-    color: #e0f2fe;
+    color: #ffffff; /* White text for navbar */
     padding: 0.4rem 0.9rem;
     border-radius: 999px;
     transition: background 0.2s ease, transform 0.15s ease;
@@ -58,7 +56,7 @@ body {
 }
 
 .nav-btn {
-    background: #f97316;
+    background: #f97316; /* Vibrant orange */
     color: #0f172a;
     font-weight: 600;
 }
@@ -83,7 +81,7 @@ body {
     font-size: 0.8rem;
     color: #9ca3af;
     border-top: 1px solid rgba(148, 163, 184, 0.2);
-    background: rgba(15, 23, 42, 0.95);
+    background: #f3f4f6; /* Light grey background */
 }
 
 /* Flash Messages */
@@ -104,21 +102,25 @@ body {
 .flash-message.success {
     background: rgba(22, 101, 52, 0.85);
     border-left: 4px solid #4ade80;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 .flash-message.danger {
     background: rgba(153, 27, 27, 0.85);
     border-left: 4px solid #f97373;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 .flash-message.warning {
     background: rgba(161, 98, 7, 0.85);
     border-left: 4px solid #facc15;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 .flash-message.info {
     background: rgba(30, 64, 175, 0.85);
     border-left: 4px solid #93c5fd;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* Auth (Login) Page */
@@ -301,11 +303,11 @@ body {
 }
 
 .panel {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(255, 255, 255, 0.95); /* Lighter background for panels */
     border-radius: 16px;
     padding: 1rem 1.2rem;
     border: 1px solid rgba(148, 163, 184, 0.35);
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1); /* Lighter shadow */
 }
 
 .panel-title {
@@ -335,11 +337,11 @@ body {
 }
 
 .data-table tbody tr:nth-child(even) {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .data-table tbody tr:nth-child(odd) {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .data-table tbody tr:hover {
